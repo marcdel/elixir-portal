@@ -1,4 +1,4 @@
-defmodule ElixirPortal.Application do
+defmodule Portal.Application do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,13 +10,13 @@ defmodule ElixirPortal.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Starts a worker by calling: ElixirPortal.Worker.start_link(arg1, arg2, arg3)
-      # worker(ElixirPortal.Worker, [arg1, arg2, arg3]),
+      # Starts a worker by calling: Portal.Worker.start_link(arg1, arg2, arg3)
+      # worker(Portal.Worker, [arg1, arg2, arg3]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: ElixirPortal.Supervisor]
+    opts = [strategy: :one_for_one, name: Portal.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

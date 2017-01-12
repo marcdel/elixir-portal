@@ -1,4 +1,4 @@
-defmodule ElixirPortal.Mixfile do
+defmodule Portal.Mixfile do
   use Mix.Project
 
   def project do
@@ -16,7 +16,7 @@ defmodule ElixirPortal.Mixfile do
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger],
-     mod: {ElixirPortal.Application, []}]
+     mod: {Portal.Application, []}]
   end
 
   # Dependencies can be Hex packages:
