@@ -1,4 +1,4 @@
-defmodule Portal.Door do
+defmodule ElixirPortal.Door do
   def start_link(color) do
     Agent.start_link(fn -> [] end, name: color)
   end

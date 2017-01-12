@@ -1,18 +1,20 @@
 defmodule ElixirPortal do
-  @moduledoc """
-  Documentation for ElixirPortal.
-  """
+  defstruct [:left, :right]
 
-  @doc """
-  Hello world.
+  def transfer(left, right, data) do
+    for item <- data do
+      ElixirPortal.Door.push(left, item)
+    end
 
-  ## Examples
+    %ElixirPortal{left: left, right: right}
+  end
 
-      iex> ElixirPortal.hello
-      :world
+  def push_right(portal) do
+    case ElixirPortal.Door.pop(portal.left) do
+      :error -> :ok
+      {:ok, h} -> ElixirPortal.Door.push(portal.right, h)
+    end
 
-  """
-  def hello do
-    :world
+    portal
   end
 end
