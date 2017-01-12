@@ -1,6 +1,10 @@
 defmodule Portal do
   defstruct [:left, :right]
 
+  def shoot(color) do
+    Supervisor.start_child(Portal.Supervisor, [color])
+  end
+
   def transfer(left, right, data) do
     for item <- data do
       Portal.Door.push(left, item)
